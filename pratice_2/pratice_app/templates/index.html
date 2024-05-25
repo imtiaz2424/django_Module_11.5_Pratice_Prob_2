@@ -2,11 +2,25 @@
 
 {% load static %}
 
-{% block content %}
+{% block content %}  
 
-    <h1>This is index app site.</h1>
+    <header class="container mt-5">
+        <h3 class="text-center mb-5">This is Meal List. Choice your Meal and order now.</h3>
 
-    <img src="{% static 'images/tiger_2.jpg' %}" alt="Tigher-2">
+        <div class="d-flex justify-content-around align-content-around flex-wrap">
+           
+            {%for i in meals %}
+            <div class="card mb-5 p-3 bg-body-tertiary rounded" style="width: 18rem;">
+                <img src="{{i.strMealThumb}}" class="card-img-top" alt="{{strMealThumb}}">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.strMeal}}</h5>
+                    <p class="card-text">{{i.strInstructions}}</p>
+                    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </header>
 
  {% endblock %}   
     
